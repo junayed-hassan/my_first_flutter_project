@@ -14,8 +14,15 @@ class CourseCardApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.grey[100],
         appBar: AppBar(
-          title: const Text("Courses"),
-          backgroundColor: Colors.deepPurple,
+          title: const Text(
+            "Assignment for Module 10",
+            style: TextStyle(
+              fontWeight: FontWeight.w600,
+              fontSize: 20,
+              color: Colors.white,
+            ),
+          ),
+          backgroundColor: Colors.blueGrey,
           centerTitle: true,
         ),
         body: const CourseGrid(),
@@ -116,15 +123,20 @@ class _CourseCardState extends State<CourseCard> {
       child: AnimatedContainer(
         duration: const Duration(milliseconds: 200),
         decoration: BoxDecoration(
-          color: Colors.white,
+          color: const Color.fromARGB(
+            221,
+            255,
+            255,
+            255,
+          ), // ডার্ক নেভি ব্যাকগ্রাউন্ড
           borderRadius: BorderRadius.circular(12),
           border: _isHovered
-              ? Border.all(color: Colors.deepPurple, width: 1.5)
+              ? Border.all(color: const Color.fromARGB(0, 24, 24, 23), width: 1)
               : null,
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withOpacity(0.2),
-              blurRadius: 6,
+              color: Colors.black.withOpacity(0.3),
+              blurRadius: 8,
               offset: const Offset(0, 4),
             ),
           ],
@@ -147,33 +159,34 @@ class _CourseCardState extends State<CourseCard> {
 
             // Info chips
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 8, vertical: 6),
-              child: Wrap(
-                spacing: 6,
+              padding: const EdgeInsets.symmetric(horizontal: 5, vertical: 3),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  InfoChip(text: "ব্যাচ ${widget.batch}"),
                   InfoChip(
-                    text: "${widget.seats} সিট বাকি",
-                    icon: Icons.event_seat,
+                    text: "ব্যাচ ${widget.batch}",
+                    icon: Icons.person_outline,
                   ),
-                  InfoChip(
-                    text: "${widget.daysLeft} দিন বাকি",
-                    icon: Icons.calendar_today,
-                  ),
+                  const SizedBox(width: 4),
+                  InfoChip(text: "${widget.seats} সিট বাকি"),
+                  const SizedBox(width: 4),
+                  InfoChip(text: "${widget.daysLeft} দিন বাকি"),
                 ],
               ),
             ),
 
             // Title
             Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 10, vertical: 6),
+              padding: const EdgeInsets.symmetric(horizontal: 12, vertical: 6),
               child: Text(
                 widget.title,
                 maxLines: 2,
                 overflow: TextOverflow.ellipsis,
                 style: const TextStyle(
-                  fontSize: 14.5,
-                  fontWeight: FontWeight.w600,
+                  fontSize: 15,
+                  fontWeight: FontWeight.w700,
+                  color: Colors.black87,
+                  height: 1.3,
                 ),
               ),
             ),
@@ -181,21 +194,35 @@ class _CourseCardState extends State<CourseCard> {
             // Button
             const Spacer(),
             Padding(
-              padding: const EdgeInsets.fromLTRB(10, 0, 10, 10),
+              padding: const EdgeInsets.fromLTRB(12, 0, 12, 12),
               child: SizedBox(
                 width: double.infinity,
-                child: ElevatedButton.icon(
+                child: OutlinedButton(
                   onPressed: () {},
-                  icon: const Icon(Icons.arrow_forward_ios, size: 14),
-                  label: const Text("বিস্তারিত দেখি"),
-                  style: ElevatedButton.styleFrom(
-                    backgroundColor: const Color(0xfff2f4f7),
+                  style: OutlinedButton.styleFrom(
                     foregroundColor: Colors.black87,
+                    side: const BorderSide(
+                      color: Color(0xFF3a3d52),
+                      width: 1.5,
+                    ),
                     shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(8),
                     ),
-                    padding: const EdgeInsets.symmetric(vertical: 10),
-                    textStyle: const TextStyle(fontWeight: FontWeight.w500),
+                    padding: const EdgeInsets.symmetric(vertical: 12),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: const [
+                      Text(
+                        "বিস্তারিত দেখি",
+                        style: TextStyle(
+                          fontWeight: FontWeight.w500,
+                          fontSize: 13,
+                        ),
+                      ),
+                      SizedBox(width: 6),
+                      Icon(Icons.arrow_forward, size: 16),
+                    ],
                   ),
                 ),
               ),
