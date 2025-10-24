@@ -32,19 +32,19 @@ class CourseGrid extends StatelessWidget {
     final courses = [
       {
         "title": "Full Stack Web Development with JavaScript (MERN)",
-        "image": "https://i.ibb.co/JyTt3Ln/mern.jpg",
+        "image": "assets/images/mern.jpg",
       },
       {
         "title": "Full Stack Web Development with Python, Django & React",
-        "image": "https://i.ibb.co/BcvnrGy/python-django.jpg",
+        "image": "assets/images/python_django.jpg",
       },
       {
         "title": "Full Stack Web Development with ASP.Net Core",
-        "image": "https://i.ibb.co/zNqG1Zb/aspnet.jpg",
+        "image": "assets/images/aspnet.jpg",
       },
       {
         "title": "SQA: Manual & Automated Testing",
-        "image": "https://i.ibb.co/ZhTch4Y/sqa.jpg",
+        "image": "assets/images/sqa.jpg",
       },
     ];
 
@@ -96,7 +96,7 @@ class CourseCard extends StatelessWidget {
           // Image section
           ClipRRect(
             borderRadius: const BorderRadius.vertical(top: Radius.circular(12)),
-            child: Image.network(
+            child: Image.asset(
               imageUrl,
               height: 110,
               width: double.infinity,
@@ -111,8 +111,8 @@ class CourseCard extends StatelessWidget {
               spacing: 6,
               children: const [
                 InfoChip(text: "ব্যাচ ২৬"),
-                InfoChip(text: "৯৬ টি ভিডিও"),
-                InfoChip(text: "৬ মাস মেয়াদ"),
+                InfoChip(text: "৯৬ সিট বাকি"),
+                InfoChip(text: "৩৬ দিন বাকি"),
               ],
             ),
           ),
@@ -148,7 +148,7 @@ class CourseCard extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(vertical: 10),
                   textStyle: const TextStyle(fontWeight: FontWeight.w500),
                 ),
-                child: const Text("বিস্তারিত দেখুন"),
+                child: const Text("বিস্তারিত দেখি"),
               ),
             ),
           ),
